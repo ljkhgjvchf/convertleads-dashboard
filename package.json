@@ -1,5 +1,5 @@
 {
-  "name": "dashboard-starter",
+  "name": "convertleads-dashboard",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -30,5 +30,6 @@
   },
   "overrides": {
     "postcss": "^8.5.33"
-  }
+  },
+  "license": "MIT"
 }

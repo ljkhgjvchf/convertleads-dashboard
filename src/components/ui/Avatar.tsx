@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element -- tiny static avatars, next/image adds nothing here */
+import { asset } from "@/lib/base";
 
 /** Photo avatar when `src` is set, otherwise initials with a colour derived from the name. */
 export function Avatar({ name, size = 36, src }: { name: string; size?: number; src?: string }) {
   if (src) {
-    return <img src={src} alt={name} width={size} height={size} style={{ width: size, height: size }} className="shrink-0 rounded-full object-cover ring-2 ring-panel" />;
+    return <img src={asset(src)} alt={name} width={size} height={size} style={{ width: size, height: size }} className="shrink-0 rounded-full object-cover ring-2 ring-panel" />;
   }
   const hue = [...name].reduce((a, c) => a + c.charCodeAt(0), 0) % 360;
   return (

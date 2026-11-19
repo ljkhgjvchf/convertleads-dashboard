@@ -7,6 +7,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Badge } from "@/components/ui";
+import { asset } from "@/lib/base";
 import { signOut } from "./auth";
 import { WORKSPACE } from "./profile";
 
@@ -22,8 +23,8 @@ const GROUPS: { title?: string; items: Item[] }[] = [
 /** Brand-kit mark: dark C on light, white C on dark (never recoloured), with ~10% clear space. */
 export const BrandLogo = ({ size = 36 }: { size?: number }) => (
   <span className="grid shrink-0 place-items-center rounded-[10px] bg-panel shadow-card" style={{ width: size, height: size, padding: size * 0.14 }}>
-    <img src={WORKSPACE.logoDark} alt={WORKSPACE.name} className="size-full dark:hidden" />
-    <img src={WORKSPACE.logoWhite} alt="" aria-hidden className="hidden size-full dark:block" />
+    <img src={asset(WORKSPACE.logoDark)} alt={WORKSPACE.name} className="size-full dark:hidden" />
+    <img src={asset(WORKSPACE.logoWhite)} alt="" aria-hidden className="hidden size-full dark:block" />
   </span>
 );
 
