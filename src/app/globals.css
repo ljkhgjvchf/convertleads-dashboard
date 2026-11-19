@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/*
+  Design tokens (light). Dark overrides are below.
+  Type scale, use only these: text-xs 12 (captions, axis, badges) · text-sm 14 (labels, body, buttons, chips)
+  · text-xl 20 (page title) · text-2xl 24 (stat values) · text-3xl 30 (gauge centre only).
+  Weights: 400 body, 500 labels/values, 600 badges.
+*/
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --color-bg: #fff;
+  --color-panel: #fff;            /* tiles, inputs, buttons */
+  --color-surface: #f7f7f7;       /* cards, sidebar */
+  --color-surface-2: #ebebeb;     /* tracks, hovers */
+  --color-line: #ebebeb;            /* separators */
+  --color-line-strong: #ebebeb;     /* control borders */
+  --color-dialog: #fff;
+  --color-edge: #fff;             /* sidebar outline */
+  --color-axis: lab(66.1% 0 0);
+
+  --color-ink: lab(2.75% 0 0);
+  --color-ink-2: lab(48.5% 0 0);
+  --color-ink-3: lab(66.1% 0 0);
+  --color-ink-4: lab(84.9% 0 0);
+
+  --color-brand: lab(54.17% 13.34 -74.68);
+  --color-brand-dark: lab(44.06% 29.03 -86.04);
+  --color-brand-soft: lab(92.03% -2.25 -11.65);
+  /* Convertleads orange: primary actions + active nav only */
+  --color-accent: #fa5d29;
+  --color-accent-dark: #e2440f;
+  --color-brand-soft-hover: lab(86.15% -4.04 -21.08);
+
+  --color-lime: lab(83.79% -45.04 88.47);
+  --color-lime-active: lab(75.32% -46.65 86.18);
+  --color-violet: lab(52.02% 66.11 -78.23);
+  --color-violet-2: lab(63.69% 47.61 -59.21);
+  --color-violet-soft: lab(78.33% 26.22 -34.95);
+  --color-blue: #3392ff;
+  --color-pink: lab(64.56% 64.36 -12.8);
+  --color-green: lab(75.08% -60.73 19.41);
+  --color-yellow: lab(83.27% 8.65 106.9);
+  --color-danger: lab(48.45% 77.43 61.55);
+
+  /* chip tones: bg + fg */
+  --color-chip-lime: lab(94.07% -22.53 42.52);    --color-chip-lime-fg: lab(37.77% -25.17 43.07);
+  --color-chip-red: lab(92.24% 10.29 3.84);       --color-chip-red-fg: lab(48.45% 77.43 61.55);
+  --color-chip-violet: lab(93.33% 6.97 -9.83);    --color-chip-violet-fg: lab(43.03% 75.21 -86.57);
+  --color-chip-blue: lab(92.03% -2.25 -11.65);    --color-chip-blue-fg: lab(44.06% 29.03 -86.04);
+  --color-chip-cyan: lab(93% -14 -8);             --color-chip-cyan-fg: lab(42% -30 -18);
+  --color-chip-yellow: lab(95% -2 45);            --color-chip-yellow-fg: lab(45% 12 58);
+  --color-chip-pink: lab(94% 14 -6);              --color-chip-pink-fg: lab(48% 62 -14);
+  --color-chip-neutral: #ebebeb;                  --color-chip-neutral-fg: lab(48.5% 0 0);
+
+  --shadow-card: 0 1px 1px 0 #0000000d;
+  --shadow-sidebar: 0 1px 0 0 #00000005, 0 1px 12px 0 #0000000f, 0 0 1px 0 #00000052;
+  --shadow-menu: 0 0 1px 0 #00000052, 0 10px 30px -6px #00000026;
+}
+
+/* Dark tokens, taken from the reference's dark theme */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #121212;
+  --color-panel: lab(15.2% 0 0);
+  --color-surface: lab(7.78% 0 0);
+  --color-surface-2: lab(15.2% 0 0);
+  --color-line: lab(15.2% 0 0);
+  --color-line-strong: lab(27.04% 0 0);
+  --color-dialog: lab(11% 0 0);
+  --color-edge: lab(15.73% 0.61 -2.17);
+  --color-axis: lab(48.5% 0 0);
+
+  --color-ink: lab(98.26% 0 0);
+  --color-ink-2: lab(60% 0 0);
+  --color-ink-3: lab(45% 0 0);
+  --color-ink-4: lab(27.04% 0 0);
+
+  --color-brand-soft: lab(26.15% 15.75 -51.55);
+  --color-brand-soft-hover: lab(31% 18 -56);
+  --color-danger: lab(63.7% 60.75 31.31);
+
+  --color-chip-lime: color-mix(in srgb, lab(30% -30 40) 45%, transparent);      --color-chip-lime-fg: lab(83.79% -45.04 88.47);
+  --color-chip-red: color-mix(in srgb, lab(13% 29 16.75) 60%, transparent);     --color-chip-red-fg: lab(63.7% 60.75 31.31);
+  --color-chip-violet: color-mix(in srgb, lab(24.94% 45.27 -51.27) 50%, transparent); --color-chip-violet-fg: lab(78.33% 26.22 -34.95);
+  --color-chip-blue: lab(15.67% 8.86 -32.29);                                   --color-chip-blue-fg: #3392ff;
+  --color-chip-cyan: color-mix(in srgb, lab(25% -20 -15) 50%, transparent);     --color-chip-cyan-fg: lab(78% -35 -15);
+  --color-chip-yellow: color-mix(in srgb, lab(30% 5 40) 50%, transparent);      --color-chip-yellow-fg: lab(85% 5 80);
+  --color-chip-pink: color-mix(in srgb, lab(25% 40 -5) 50%, transparent);       --color-chip-pink-fg: lab(75% 50 -8);
+  --color-chip-neutral: lab(15.2% 0 0);                                         --color-chip-neutral-fg: lab(65% 0 0);
+
+  --shadow-card: 0 1px 1px 0 #00000024;
+  --shadow-sidebar: 0 1px 0 0 #0000001a, 0 1px 12px 0 #00000029, 0 0 1px 0 #0000006b;
+  --shadow-menu: 0 0 1px 0 #ffffff26, 0 10px 30px -6px #00000099;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+button, select, [role="tab"] { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 8px; }
+
+/* theme switch crossfade */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.35s; }
+
+/* ---- motion ---- */
+@keyframes reveal { from { opacity: 0; transform: translateY(10px); filter: blur(4px); } }
+.reveal { animation: reveal 0.6s var(--ease-out-quint) backwards; animation-delay: calc(var(--i, 0) * 70ms); }
+
+@keyframes bar-rise { from { transform: scaleY(0); } }
+.bar-rise { animation: bar-rise 0.7s var(--ease-out-quint) backwards; transition: fill 0.2s, opacity 0.2s; }
+
+@keyframes chart-reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+.chart-reveal { animation: chart-reveal 1.5s cubic-bezier(0.33, 0, 0.15, 1) 0.2s backwards; }
+
+@keyframes arc-draw { from { stroke-dashoffset: 1; opacity: 0; } 12% { opacity: 1; } }
+.arc-draw { animation: arc-draw 0.9s var(--ease-out-quint) backwards; transition: stroke-width 0.25s var(--ease-out-quint), opacity 0.2s; }
+
+@keyframes cell-pop { from { opacity: 0; transform: scale(0.4); } }
+.cell-pop { animation: cell-pop 0.38s ease-out backwards; }
+
+@keyframes label-in { from { opacity: 0; transform: translateY(6px); } }
+.label-in { animation: label-in 0.32s var(--ease-out-quint) backwards; }
+
+@keyframes menu-in { from { opacity: 0; transform: translateX(-6px) scale(0.97); } }
+.menu-in { animation: menu-in 0.2s var(--ease-out-quint); transform-origin: bottom left; }
+
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes fade-out { to { opacity: 0; } }
+.fade-in { animation: fade-in 0.2s ease-out; }
+.fade-out { animation: fade-out 0.18s ease-in forwards; }
+@keyframes modal-in { from { opacity: 0; transform: translateY(10px) scale(0.97); } }
+@keyframes modal-out { to { opacity: 0; transform: translateY(6px) scale(0.98); } }
+.modal-in { animation: modal-in 0.3s var(--ease-out-quint); }
+.modal-out { animation: modal-out 0.18s ease-in forwards; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(2px); }
+}
+.shake { animation: shake 0.4s ease-in-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
