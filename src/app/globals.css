@@ -10,8 +10,8 @@
   Weights: 400 body, 500 labels/values, 600 badges.
 */
 @theme {
-  --font-sans: var(--font-ui), ui-sans-serif, system-ui, sans-serif;
-  --font-brand: var(--font-wordmark), sans-serif;
+  --font-sans: "Inter Tight Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-brand: "Montserrat Variable", sans-serif;
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 
   --color-bg: #fff;
