@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${interTight.variable} ${montserrat.variable}`}>
+    <html lang="en" data-theme="light" suppressHydrationWarning className={`${interTight.variable} ${montserrat.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
