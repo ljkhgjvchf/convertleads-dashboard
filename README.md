@@ -49,8 +49,8 @@ Collapsible sidebar (full width or icons only), light/dark toggle with no flash 
 ## Use it
 
 ```sh
-git clone https://github.com/ljkhgjvchf/convertleads-dashboard.git
-cd convertleads-dashboard
+git clone https://github.com/ljkhgjvchf/template-dashboard.git
+cd template-dashboard
 npm install
 npm run dev        # http://localhost:3000/dashboard
 ```
