@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* dark: variant follows the data-theme switch, not the OS */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /*
   Design tokens (light). Dark overrides are below.
   Type scale, use only these: text-xs 12 (captions, axis, badges) · text-sm 14 (labels, body, buttons, chips)
@@ -7,21 +10,22 @@
   Weights: 400 body, 500 labels/values, 600 badges.
 */
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-ui), ui-sans-serif, system-ui, sans-serif;
+  --font-brand: var(--font-wordmark), sans-serif;
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 
   --color-bg: #fff;
   --color-panel: #fff;            /* tiles, inputs, buttons */
-  --color-surface: #f7f7f7;       /* cards, sidebar */
+  --color-surface: #f8f8f8;       /* cards, sidebar (brand background) */
   --color-surface-2: #ebebeb;     /* tracks, hovers */
-  --color-line: #ebebeb;            /* separators */
-  --color-line-strong: #ebebeb;     /* control borders */
+  --color-line: #e4e4e4;            /* separators (brand border) */
+  --color-line-strong: #e4e4e4;     /* control borders */
   --color-dialog: #fff;
   --color-edge: #fff;             /* sidebar outline */
   --color-axis: lab(66.1% 0 0);
 
-  --color-ink: lab(2.75% 0 0);
-  --color-ink-2: lab(48.5% 0 0);
+  --color-ink: #222222;           /* brand text */
+  --color-ink-2: #6b6b6b;         /* brand muted */
   --color-ink-3: lab(66.1% 0 0);
   --color-ink-4: lab(84.9% 0 0);
 

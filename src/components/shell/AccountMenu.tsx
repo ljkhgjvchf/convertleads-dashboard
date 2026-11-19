@@ -18,8 +18,14 @@ const GROUPS: { title?: string; items: Item[] }[] = [
   { title: "Personal", items: [{ label: "Notifications", icon: Bell, opens: "general" }, { label: "Account details", icon: ShieldCheck, opens: "profile" }] },
 ];
 
-/* eslint-disable-next-line @next/next/no-img-element -- static 192px favicon */
-export const BrandLogo = ({ size = 36 }: { size?: number }) => <img src={WORKSPACE.logo} alt={WORKSPACE.name} width={size} height={size} className="shrink-0 rounded-[10px]" style={{ width: size, height: size }} />;
+/* eslint-disable @next/next/no-img-element -- static brand-kit PNGs */
+/** Brand-kit mark: dark C on light, white C on dark (never recoloured), with ~10% clear space. */
+export const BrandLogo = ({ size = 36 }: { size?: number }) => (
+  <span className="grid shrink-0 place-items-center rounded-[10px] bg-panel shadow-card" style={{ width: size, height: size, padding: size * 0.14 }}>
+    <img src={WORKSPACE.logoDark} alt={WORKSPACE.name} className="size-full dark:hidden" />
+    <img src={WORKSPACE.logoWhite} alt="" aria-hidden className="hidden size-full dark:block" />
+  </span>
+);
 
 /** Account card at the bottom of the sidebar; opens a menu with Sign out. */
 export function AccountMenu({ onOpen, compact = false }: { onOpen: (s: "profile" | "general") => void; compact?: boolean }) {
@@ -46,7 +52,7 @@ export function AccountMenu({ onOpen, compact = false }: { onOpen: (s: "profile"
         className={`flex w-full items-center rounded-xl bg-surface-2 text-left transition-[padding,background-color] duration-300 hover:bg-ink-4/50 ${compact ? "justify-center p-1.5" : "gap-2.5 p-2.5"}`}>
         <BrandLogo />
         <span className={`min-w-0 flex-1 ${compact ? "hidden" : ""}`}>
-          <span className="block truncate text-sm font-medium">{WORKSPACE.name}</span>
+          <span className="block truncate font-brand text-sm font-semibold">{WORKSPACE.name}</span>
           <span className="block truncate text-sm text-ink-2">{WORKSPACE.site}</span>
         </span>
         <span className={`grid size-6 shrink-0 place-items-center rounded-md bg-panel text-ink-2 shadow-card ${compact ? "hidden" : ""}`}>
@@ -58,7 +64,7 @@ export function AccountMenu({ onOpen, compact = false }: { onOpen: (s: "profile"
         <div role="menu" className="menu-in absolute bottom-0 left-full z-50 ml-3 w-64 rounded-2xl border border-line-strong bg-panel p-1.5 shadow-menu">
           <div className="flex items-center gap-2.5 px-2.5 py-2">
             <BrandLogo />
-            <span className="min-w-0"><span className="block text-sm font-medium">{WORKSPACE.name}</span><span className="block truncate text-sm text-ink-2">{WORKSPACE.site}</span></span>
+            <span className="min-w-0"><span className="block font-brand text-sm font-semibold">{WORKSPACE.name}</span><span className="block truncate text-sm text-ink-2">{WORKSPACE.site}</span></span>
           </div>
           {GROUPS.map((g, gi) => (
             <div key={gi} className={gi ? "mt-1 border-t border-line pt-1" : ""}>
