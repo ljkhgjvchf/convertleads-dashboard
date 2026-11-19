@@ -88,6 +88,6 @@ The layout and interaction design are inspired by [BoardUI](https://www.boardui.
 
 ## License
 
-The code is MIT licensed, see [LICENSE](LICENSE). The Convertleads name and logo (`public/brand/`, `src/app/icon.png`, `src/app/apple-icon.png`) and the profile photo (`public/nicola.jpg`) are not covered by the MIT licence. Swap them for your own when you reuse the kit.
+The code is MIT licensed, see [LICENSE](LICENSE). As [NOTICE](NOTICE) says, the Convertleads name and logo (`public/brand/`, `src/app/icon.png`, `src/app/apple-icon.png`) and the profile photo (`public/nicola.jpg`) are not covered by the MIT licence. Swap them for your own when you reuse the kit.
 
 Made by [Convertleads](https://www.convertleads.xyz).
